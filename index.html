@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omnilingual ASR Transcription</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Omnilingual ASR Transcription</h1>
+            <p class="subtitle">Transcribe long audio files with advanced multilingual speech recognition</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <h2>Select Audio</h2>
+                <div class="demo-audios" id="demoAudios"></div>
+                <div class="file-upload-area" id="uploadArea">
+                    <input type="file" id="audioFile" accept="audio/*" hidden>
+                    <div class="upload-content">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <p class="upload-text">Or click to upload your own file</p>
+                        <p class="upload-hint">WAV, MP3, FLAC, OGG, M4A</p>
+                        <p class="file-name" id="fileName"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="config-section">
+                <h2>Configuration</h2>
+                <div class="config-grid">
+                    <div class="config-item">
+                        <label for="model">Model</label>
+                        <div class="model-select-wrapper">
+                            <select id="model">
+                                <option value="omniASR_LLM_7B" selected>omniASR_LLM_7B</option>
+                                <option value="omniASR_LLM_3B">omniASR_LLM_3B</option>
+                                <option value="omniASR_LLM_1B">omniASR_LLM_1B</option>
+                            </select>
+                            <span class="model-status" id="modelStatus"></span>
+                        </div>
+                    </div>
+
+                    <div class="config-item full-width">
+                        <label for="lang">Language</label>
+                        <select id="lang">
+                            <option value="eng_Latn" selected>English</option>
+                            <option value="arb_Arab">Standard Arabic</option>
+                            <option value="arz_Arab">Egyptian Arabic</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-section">
+                <button id="transcribeBtn" class="btn-primary" disabled>Start Transcription</button>
+                <button id="resetBtn" class="btn-secondary" style="display: none;">Reset</button>
+            </div>
+
+            <div class="progress-section" id="progressSection" style="display: none;">
+                <h2>Progress</h2>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <p class="progress-text" id="progressText"></p>
+            </div>
+
+            <div class="result-section" id="resultSection" style="display: none;">
+                <h2>Transcription Result</h2>
+                <div class="result-actions">
+                    <button id="copyBtn" class="btn-secondary">Copy to Clipboard</button>
+                    <button id="downloadBtn" class="btn-secondary">Download as TXT</button>
+                </div>
+                <div class="result-text" id="resultText"></div>
+            </div>
+
+            <div class="error-section" id="errorSection" style="display: none;">
+                <div class="error-message" id="errorMessage"></div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

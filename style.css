@@ -1,0 +1,373 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+main {
+    padding: 40px;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #333;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 10px;
+}
+
+/* File Upload Area */
+.file-upload-area {
+    border: 3px dashed #667eea;
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #f8f9ff;
+}
+
+.file-upload-area:hover {
+    border-color: #764ba2;
+    background: #f0f2ff;
+    transform: translateY(-2px);
+}
+
+.file-upload-area.dragover {
+    border-color: #764ba2;
+    background: #e8ebff;
+    transform: scale(1.02);
+}
+
+.upload-content svg {
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.upload-text {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.upload-hint {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.file-name {
+    font-size: 0.95em;
+    color: #667eea;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.demo-audios {
+    margin-bottom: 20px;
+}
+
+.demo-label {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.demo-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.demo-btn {
+    padding: 10px 20px;
+    border: 2px solid #667eea;
+    border-radius: 8px;
+    background: white;
+    color: #667eea;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.demo-btn:hover {
+    background: #f8f9ff;
+    transform: translateY(-2px);
+}
+
+.demo-btn.active {
+    background: #667eea;
+    color: white;
+}
+
+/* Configuration Grid */
+.config-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.config-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.config-item.full-width {
+    grid-column: 1 / -1;
+}
+
+.config-item label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.config-item input,
+.config-item select {
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+.config-item input:focus,
+.config-item select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.config-item small {
+    margin-top: 5px;
+    color: #666;
+    font-size: 0.85em;
+}
+
+.model-select-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.model-select-wrapper select {
+    flex: 1;
+}
+
+.model-status {
+    font-size: 0.9em;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.model-status.status-loaded {
+    color: #28a745;
+}
+
+.model-status.status-loading {
+    color: #ffc107;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.model-status.status-error {
+    color: #dc3545;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Buttons */
+.action-section {
+    display: flex;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-secondary {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background: #e0e0e0;
+    transform: translateY(-2px);
+}
+
+/* Progress Section */
+.progress-section {
+    margin: 30px 0;
+    padding: 20px;
+    background: #f8f9ff;
+    border-radius: 12px;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 30px;
+    background: #e0e0e0;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    width: 0%;
+    transition: width 0.3s ease;
+    border-radius: 15px;
+}
+
+.progress-text {
+    text-align: center;
+    color: #666;
+    font-weight: 500;
+}
+
+/* Result Section */
+.result-section {
+    margin: 30px 0;
+}
+
+.result-actions {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.result-text {
+    background: #f8f9ff;
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px solid #e0e0e0;
+    min-height: 200px;
+    max-height: 500px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 1.05em;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Error Section */
+.error-section {
+    margin: 30px 0;
+}
+
+.error-message {
+    background: #fee;
+    border: 2px solid #fcc;
+    color: #c33;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .config-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .action-section {
+        flex-direction: column;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    main {
+        padding: 20px;
+    }
+}
+
+/* Scrollbar Styling */
+.result-text::-webkit-scrollbar {
+    width: 8px;
+}
+
+.result-text::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.result-text::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 4px;
+}
+
+.result-text::-webkit-scrollbar-thumb:hover {
+    background: #764ba2;
+}
+
