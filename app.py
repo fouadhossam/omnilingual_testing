@@ -351,8 +351,10 @@ def get_model_status(model, device):
 
 
 if __name__ == '__main__':
-    print(f"Loading default ASR model {DEFAULT_MODEL}...")
-    load_model(DEFAULT_MODEL, DEFAULT_DEVICE)
-    print("Default model loaded successfully!")
+    # Only load model in the actual server process, not in the Flask reloader parent process
+    if os.environ.get('WERKZEUG_RUN_MAIN') == 'true':
+        print(f"Loading default ASR model {DEFAULT_MODEL}...")
+        load_model(DEFAULT_MODEL, DEFAULT_DEVICE)
+        print("Default model loaded successfully!")
     app.run(debug=True, host='0.0.0.0', port=5000)
 
